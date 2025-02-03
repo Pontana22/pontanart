@@ -96,16 +96,13 @@ def charmapLow(characters, values):
 
 def charmapHigh(characters, values):
     output = ""
-    minVal = min(values)
-    rangeVal = max(values) - minVal
-    rangeChar = len(characters) - 1
-    
-    if rangeVal == 0:
-        return characters[len(characters) - 1] * len(values)
-    
+    maxVal = max(values)
+    charVal = len(characters) - 1
+
     for val in values:
-        output += characters[int(round(((val - minVal) * rangeChar) / rangeVal))]
-    
+        index = int(round((val / maxVal) * charVal))
+        output += characters[index]
+
     return output
 
 # specific functions/methods ----------------------------------------------
