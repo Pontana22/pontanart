@@ -5,13 +5,13 @@ Created by Pontus Martinsson
 
 - Python 3.10.7 or greater
 - The pip package management tool
-- A Google account connected to NTI-Gymnasiet
+- A Google Cloud project with the Google Docs API
 
 ## How to use:
 
-1. If you haven't already, run **install_requirements.bat** and wait for it to finish
+1. Run `pip install -r requirements.txt`
 2. Place the image you want to convert into the **img** folder
-3. Run **RUN.bat** and follow the instructions in the terminal
+3. Run `python main.py` and follow instructions in the terminal
 4. Done! Your image/document should have appeared on your Google drive
 
 ## WARNING!
