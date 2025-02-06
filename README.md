@@ -15,7 +15,7 @@ An improved version of this project is currently under development and is expect
 
 1. Clone the repo and run `pip install -r requirements.txt`
 2. Create a Google Cloud project and follow [Google's quickstart quide](https://developers.google.com/docs/api/quickstart/python) up until "Install the Google client library"
-3. Copy the credentials.json file into the root folder
+3. Download your OAuth client file, rename it to credentials.json and place it in the root folder
 4. Place the image you want to convert in the **img** folder
 5. Run `python main.py` and follow the instructions in the terminal
 6. Done! Your image/document should have appeared on your Google drive
