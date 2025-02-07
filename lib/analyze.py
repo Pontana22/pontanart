@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 # sorts the characters in a given string 
-def analyze(characters: str = string.printable[:95], size: int = 1000, font_path: str = './courier_prime.ttf'):
+def analyze(characters: str = string.printable[:95], size: int = 1000, font_path: str = './fonts/courier_prime.ttf'):
   font = ImageFont.truetype(font=font_path, size=size)
   pixels = []
 
