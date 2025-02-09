@@ -5,7 +5,7 @@ import numpy as np
 
 from PIL import Image, ImageDraw, ImageFont
 
-# sorts the characters in a given string 
+# sorts the characters in a given string
 def analyze(characters: str, size: int, font_path: str):
   font = ImageFont.truetype(font=font_path, size=size)
   pixels = []
@@ -19,12 +19,12 @@ def analyze(characters: str, size: int, font_path: str):
 
     image_data = cv.imread('character.bmp', cv.IMREAD_GRAYSCALE)
     pixels.append(int(np.sum(image_data != 255)))
-  
+
   os.remove('character.bmp')
 
-  sorted_tuples = sorted(zip(pixels, characters)) 
+  sorted_tuples = sorted(zip(pixels, characters))
 
   sorted_characters = ''
   for tuple in sorted_tuples : sorted_characters += tuple[1]
-  
+
   return(sorted_characters)
