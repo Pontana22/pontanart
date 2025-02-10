@@ -1,5 +1,4 @@
 import os
-import string
 import cv2 as cv
 import numpy as np
 
