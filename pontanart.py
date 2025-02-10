@@ -34,48 +34,41 @@ if __name__ == '__main__':
     '-m', '--mode',
     type=str,
     choices=['full', 'map', 'full_lines'],
-    # default='full',
     help='conversion mode', metavar=''
   )
   parser.add_argument( # characters
     '-c', '--characters',
     type=str,
-    # default=string.printable[:95],
     help='the characters to be used',
     metavar=''
   )
   parser.add_argument( # font file
     '-f', '--font',
     type=str,
-    # default='CourierPrime-Regular',
     help='filename of font in the fonts folder or path to font elsewhere',
     metavar=''
   )
   parser.add_argument( # font size
     '-fs', '--font-size',
     type=int,
-    # default=3,
     help='document font size',
     metavar=''
   )
   parser.add_argument( # row length
     '-rl', '--row-length',
     type=int,
-    # default=250,
     help='number of characters per row',
     metavar=''
   )
   parser.add_argument( # row spacing
     '-rs', '--row-spacing',
     type=int,
-    # default=60,
     help='document row spacing',
     metavar=''
   )
   parser.add_argument( # analysis resolution
     '-ar', '--analysis-resolution',
     type=int,
-    # default=1000,
     help='image resolution used during font analysis, NOTE: changing this is likely of no use, just leave it',
     metavar=''
   )
@@ -125,3 +118,4 @@ if __name__ == '__main__':
   arguments = parser.parse_args()
 
   process_arguments(arguments)
+tjena
