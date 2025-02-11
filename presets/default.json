@@ -1,0 +1,10 @@
+{
+    "mode": "full",
+    "characters": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ ",
+    "font_family": "Courier Prime",
+    "font_size": 3,
+    "row_length": 250,
+    "row_spacing": 60,
+    "analysis_resolution": 1000,
+    "analysis_font": "CourierPrime-Regular"
+}
