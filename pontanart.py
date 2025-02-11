@@ -107,6 +107,3 @@ if __name__ == '__main__':
 
     if arguments.command == 'preset':
         exit(f'preset {arguments.name} successfully created')
-
-    for key, val in options.items():
-        print(key + ':' + ' '*(25 - len(key)), repr(val))
