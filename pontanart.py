@@ -9,8 +9,9 @@ if __name__ == '__main__':
     root_dir = os.path.abspath(os.path.dirname(__file__))
     options = process_arguments(arguments, root_dir)
 
-    if arguments.command == 'preset':
-        exit(f'preset {arguments.name} successfully created')
-    elif arguments.command == 'convert':
-        convert(options, root_dir)
+    match arguments.command: 
+        case 'preset':
+            exit(f'preset {arguments.name} successfully created')
+        case 'convert':
+            convert(options, root_dir)
         

@@ -20,20 +20,20 @@ def process_arguments(arguments: argparse.Namespace, root_dir: str):
     if font == None:
         exit(f'specified analysis font {arguments.analysis_font} was either not found or not a .ttf')
     else:
-        if arguments.command == 'preset':
-            save_preset(options, arguments.name, presets_dir)
-        elif arguments.command == 'convert':
-            options['analysis_font'] = font
+        match arguments.command:
+            case 'preset':
+                save_preset(options, arguments.name, presets_dir)
+            case 'convert':
+                options['analysis_font'] = font
+                image_types = ['.bmp', '.dib', '.jpeg', '.jpg', '.png', '.webp', '.sr', '.ras', '.tiff', '.tif']
+                image = locate_file(options['img'], img_dir, image_types)
 
-            image_types = ['.bmp', '.dib', '.jpeg', '.jpg', '.png', '.webp', '.sr', '.ras', '.tiff', '.tif']
-            image = locate_file(options['img'], img_dir, image_types)
+                if image == None:
+                    exit(f'image {options['img']} was either not found or an unsupported file type')
+                else:
+                    options['img'] = image
 
-            if image == None:
-                exit(f'image {options['img']} was either not found or an unsupported file type')
-            else:
-                options['img'] = image
-
-            return(options)
+                return(options)
 
 def save_preset(options: dict, filename: str, presets_dir: str):
     keys = ['mode', 'characters', 'font_family', 'font_size', 'row_length', 'row_spacing', 'analysis_resolution', 'analysis_font']
