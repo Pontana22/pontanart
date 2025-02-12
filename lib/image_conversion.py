@@ -6,6 +6,7 @@ def convert_image(image_path: str, characters: str, row_length: int, min: int, m
     output = []
     input_range = max - min
     output_range = (len(characters) - 1)
+    
     for row in image:
         character_row = ''
         
