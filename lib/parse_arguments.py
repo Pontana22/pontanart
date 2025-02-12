@@ -23,7 +23,7 @@ def parse_arguments():
     parser.add_argument( # font family
         '-ff', '--font-family',
         type=str,
-        help='document font, ie what the font is called in google docs',
+        help='document font, ie what the font is called in google docs, NOTE: case sensitive',
         metavar=''
     )
     parser.add_argument( # font size
