@@ -13,7 +13,7 @@ if __name__ == '__main__':
     parser.add_argument( # mode
         '-m', '--mode',
         type=str,
-        choices=['full', 'map', 'full_lines'],
+        choices=['full', 'map'],
         help='conversion mode', metavar=''
     )
     parser.add_argument( # characters
