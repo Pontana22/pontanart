@@ -1,0 +1,2 @@
+Presets are stored here
+You can modify default.json if you'd like to, but do not delete it
