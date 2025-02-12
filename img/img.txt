@@ -1,0 +1,9 @@
+Place images to convert here
+
+Supported formats:
+Windows bitmaps           – *.bmp, *.dib
+JPEG files                – *.jpeg, *.jpg
+Portable Network Graphics – *.png 
+WebP                      – *.webp 
+Sun rasters               – *.sr, *.ras 
+TIFF files                – *.tiff, *.tif 
