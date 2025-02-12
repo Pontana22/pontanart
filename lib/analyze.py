@@ -5,12 +5,12 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 # sorts the characters in a given string
-def analyze(characters: str, size: int, font_path: str):
-    font = ImageFont.truetype(font=font_path, size=size)
+def analyze(characters: str, resolution: int, font_path: str):
+    font = ImageFont.truetype(font=font_path, size=resolution)
     pixels = []
 
     for char in characters:
-        image = Image.new(mode='L', size=(size, size), color=255)
+        image = Image.new(mode='L', size=(resolution, resolution), color=255)
         canvas = ImageDraw.Draw(im=image, mode='L')
 
         canvas.text(xy=(0, 0), text=char, fill=0, font=font)
@@ -21,7 +21,7 @@ def analyze(characters: str, size: int, font_path: str):
 
     os.remove('character.bmp')
 
-    sorted_tuples = sorted(zip(pixels, characters))
+    sorted_tuples = sorted(zip(pixels, characters), reverse=True)
 
     sorted_characters = ''
     for tuple in sorted_tuples : sorted_characters += tuple[1]
