@@ -1,0 +1,2 @@
+Place font files here
+Only .ttf is supported
