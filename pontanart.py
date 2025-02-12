@@ -2,7 +2,7 @@ import os
 from lib.parse_arguments import parse_arguments
 from lib.userinput import process_arguments
 from lib.analyze import analyze
-from lib.convert import get_min_max, convert_image
+from lib.image_conversion import get_min_max, convert_image
 from lib.login import login
 
 if __name__ == '__main__':
