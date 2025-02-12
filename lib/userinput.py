@@ -35,7 +35,6 @@ def process_arguments(arguments: argparse.Namespace, root_dir: str):
 
             return(options)
 
-
 def save_preset(options: dict, filename: str, presets_dir: str):
     keys = ['mode', 'characters', 'font_family', 'font_size', 'row_length', 'row_spacing', 'analysis_resolution', 'analysis_font']
     save = {key: options[key] for key in keys}
