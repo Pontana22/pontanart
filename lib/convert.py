@@ -10,7 +10,7 @@ def convert(options: dict, root_dir: str):
             min_val, max_val = get_min_max(options['img'], options['row_length'])
             content = convert_image(options['img'], characters_sorted, options['row_length'], min_val, max_val)
         case 'map':
-            content = convert_image(options['img'], characters_sorted, 0, 255)
+            content = convert_image(options['img'], characters_sorted, options['row_length'], 0, 255)
     
     try:
         credentials = login(root_dir)
