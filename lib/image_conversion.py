@@ -11,7 +11,7 @@ def convert_image(image_path: str, characters: str, row_length: int, min: int, m
         character_row = ''
         
         for val in row:
-            character_index = int(round((val / input_range) * output_range))
+            character_index = int(round(((val - min) / input_range) * output_range))
             character_row += characters[character_index]
 
         output.append(character_row)
