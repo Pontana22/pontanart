@@ -14,7 +14,7 @@ def convert_image(image_path: str, characters: str, row_length: int, min: int, m
             character_index = int(round(((val - min) / input_range) * output_range))
             character_row += characters[character_index]
 
-        output.append(character_row)
+        output.append(character_row + '\n')
 
     return(output)
 
