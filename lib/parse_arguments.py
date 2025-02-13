@@ -59,6 +59,7 @@ def parse_arguments():
     parser.add_argument( # preset file
         '-p', '--preset',
         type=str,
+        default='default',
         help='preset to be used (filename of preset in the presets folder or path to preset elsewhere), NOTE: will get overridden by any other settings',
         metavar=''
     )

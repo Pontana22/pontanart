@@ -48,12 +48,9 @@ def save_preset(options: dict, filename: str, presets_dir: str):
         json.dump(save, file, indent=4)
 
 def load_preset(filename: str, presets_dir: str):
-    if filename == None:
-        path = locate_file('default', presets_dir, ['.json'])
-    else:
-        path = locate_file(filename, presets_dir, ['.json'])
+    path = locate_file(filename, presets_dir, ['.json'])
 
-    if path == None and filename == None:
+    if path == None and filename == 'default':
         exit('default settings not found')
     elif path == None:
         exit(f'preset {filename} not found')
