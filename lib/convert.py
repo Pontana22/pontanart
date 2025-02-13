@@ -1,6 +1,7 @@
 from lib.analyze import analyze
 from lib.image_conversion import get_min_max, convert_image
 from lib.login import login
+from lib.create_document import create_document
 
 def convert(options: dict, root_dir: str):
     characters_sorted = analyze(options['characters'], options['analysis_resolution'], options['analysis_font'])
@@ -16,3 +17,6 @@ def convert(options: dict, root_dir: str):
         credentials = login(root_dir)
     except FileNotFoundError:
         exit('credentials.json not found; see README.md for more info')
+    
+    create_document(credentials, options['docname'], content, options['font_family'], options['font_size'], options['row_spacing'])
+    
