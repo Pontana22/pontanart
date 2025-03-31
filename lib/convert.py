@@ -18,5 +18,5 @@ def convert(options: dict, root_dir: str):
     except FileNotFoundError:
         exit('credentials.json not found; see README.md for more info')
     
-    create_document(credentials, options['docname'], content, options['font_family'], options['font_size'], options['row_spacing'])
+    create_document(credentials, content, options)
     

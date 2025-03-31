@@ -1,11 +1,11 @@
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-def create_document(credentials, document_name: str, content: str, font_family: str, font_size: int, row_spacing: int):
+def create_document(credentials, content: str, options: dict):
     try:
         service = build("docs", "v1", credentials=credentials)
-        document = service.documents().create(body={"title":document_name}).execute()
-        _id = document.get("documentId")
+        document = service.documents().create(body={"title":options['docname']}).execute()
+        document_id = document.get("documentId")
         end_index = len(content) + 1
 
         requests = []
@@ -19,7 +19,6 @@ def create_document(credentials, document_name: str, content: str, font_family: 
                 }
             }
         })
-        
             
         # change line spacing
         requests.append({
@@ -29,7 +28,7 @@ def create_document(credentials, document_name: str, content: str, font_family: 
                     "endIndex": end_index
                 },
                 "paragraphStyle": {
-                    "lineSpacing":row_spacing
+                    "lineSpacing":options['row_spacing']
                 },
                 "fields": "lineSpacing"
             }
@@ -44,10 +43,10 @@ def create_document(credentials, document_name: str, content: str, font_family: 
                 },
                 "textStyle": {
                     "weightedFontFamily": {
-                        "fontFamily": font_family
+                        "fontFamily": options['font_family']
                     },
                     "fontSize": {
-                        "magnitude": font_size,
+                        "magnitude": options['font_size'],
                         "unit": "PT"
                     }
                 },
@@ -55,7 +54,7 @@ def create_document(credentials, document_name: str, content: str, font_family: 
             }
         })
 
-        service.documents().batchUpdate(documentId=_id, body={"requests": requests}).execute()
+        service.documents().batchUpdate(documentId=document_id, body={"requests": requests}).execute()
 
     except HttpError as err:
         exit(err)
