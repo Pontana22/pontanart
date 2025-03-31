@@ -29,7 +29,7 @@ def process_arguments(arguments: argparse.Namespace, root_dir: str):
                 image = locate_file(options['img'], img_dir, image_types)
 
                 if image == None:
-                    exit(f'image {options['img']} was either not found or an unsupported file type')
+                    exit(f"image {options['img']} was either not found or an unsupported file type")
                 else:
                     options['img'] = image
 
