@@ -14,4 +14,5 @@ if __name__ == '__main__':
             exit(f'preset {arguments.name} successfully created')
         case 'convert':
             convert(options, root_dir)
+            exit(f'document {arguments.docname} successfully created')
         
