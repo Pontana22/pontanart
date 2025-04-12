@@ -11,8 +11,10 @@ if __name__ == '__main__':
 
     match arguments.command: 
         case 'preset':
-            exit(f'preset {arguments.name} successfully created')
+            print(f'preset {arguments.name} successfully created')
+            exit()
         case 'convert':
             convert(options, root_dir)
-            exit(f'document {arguments.docname} successfully created')
+            print(f'document {arguments.docname} successfully created')
+            exit()
         
