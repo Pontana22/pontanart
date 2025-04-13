@@ -1,5 +1,0 @@
-quality=low
-characters=%Oxzi,-
-fontsize=3
-width=250
-rowspacing=60
