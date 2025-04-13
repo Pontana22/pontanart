@@ -11,7 +11,14 @@ def parse_arguments():
     parser.add_argument( # mode
         '-m', '--mode',
         type=str,
-        choices=['full', 'map'],
+        choices=[
+            'visual', 
+            'visual-adaptive', 
+            'linear', 
+            'linear-adaptive', 
+            'fixed', 
+            'fixed-adaptive'
+        ],
         help='conversion mode', metavar=''
     )
     parser.add_argument( # characters
