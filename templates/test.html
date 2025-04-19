@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pontanart</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+    <form action="/create" method="post" enctype="multipart/form-data">
+        Mode
+        <select name="mode" id="">
+            <option value="visual">Visual</option>
+            <option value="linear">Linear</option>
+            <option value="fixed">Fixed</option>
+        </select>
+
+        <br><br>
+        Adaptive
+        <input type="checkbox" name="adaptive">
+        
+        <br><br>
+        Characters
+        <input type="text" name="characters" placeholder="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !?:;.,`&quot;'_+-*=^~#$%&@|/\()[]{}&lt;&gt;" id="gre">
+
+        <br><br>
+        Font size
+        <input type="number" name="font_size" placeholder="3">
+
+        <br><br>
+        Row length
+        <input type="number" name="row_length" placeholder="250">
+
+        <br><br>
+        Row spacing
+        <input type="number" name="row_spacing" placeholder="60">
+        
+        <br><br>
+        Document name
+        <input type="text" name="docname" required>
+        
+        <br><br>
+        Image
+        <input type="file" name="image" required>
+        
+        <br><br>
+        <input type="submit" value="create">
+    </form>
+</body>
+</html>

@@ -1,20 +1,30 @@
 import os
-from lib.parse_arguments import parse_arguments
-from lib.userinput import process_arguments
+
+from lib.userinput import process_options
 from lib.convert import convert
+from flask import Flask, render_template, request
 
-if __name__ == '__main__':
+app = Flask(__name__)
+root_dir = os.path.abspath(os.path.dirname(__file__))
+
+@app.route('/')
+def hello_world():
+    return render_template('test.html')
+
+@app.route('/create', methods=['POST'])
+def create():
+    image = request.files['image']
+    image.save(image.filename)
     
-    arguments = parse_arguments()
-    root_dir = os.path.abspath(os.path.dirname(__file__))
-    options = process_arguments(arguments, root_dir)
+    options = dict(request.form)
+    options['img'] = image.filename
+    
+    process_options(options)
+    
+    convert(options, root_dir)
+    
+    return str(options)
+    
 
-    match arguments.command: 
-        case 'preset':
-            print(f'preset {arguments.name} successfully created')
-            exit()
-        case 'convert':
-            convert(options, root_dir)
-            print(f'document {arguments.docname} successfully created')
-            exit()
+    
         
