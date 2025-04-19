@@ -16,5 +16,5 @@ if __name__ == '__main__':
             convert(options, root_dir)
             print(f'document {arguments.docname} successfully created')
             
-        exit()
+    exit()
         
