@@ -11,7 +11,7 @@ def convert_image(image_path: str, characters: str, row_length: int, min: int, m
     for row in image:
         for val in row:
             character_index = int(interp(val))
-            print(characters[character_index])
+            output += characters[character_index]
         output += '\n'
         
     return(output)
