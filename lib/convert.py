@@ -13,7 +13,7 @@ def process_characters(mode, characters, resolution, font):
     else:
         return(characters)
 
-def convert(options: dict, root_dir: str):  
+def convert(options: dict, credentials):  
     mode, image, characters, row_length, analysis_resolution, analysis_font = itemgetter(
         'mode', 'img', 'characters', 'row_length', 'analysis_resolution', 'analysis_font')(options)
 
@@ -22,9 +22,9 @@ def convert(options: dict, root_dir: str):
 
     content = convert_image(image, characters_processed, row_length, min_val, max_val)
     
-    try:
-        credentials = login(root_dir)
-    except FileNotFoundError:
-        exit('credentials.json not found; see README.md for more info')
+    # try:
+    #     credentials = login(root_dir)
+    # except FileNotFoundError:
+    #     exit('credentials.json not found; see README.md for more info')
     
     create_document(credentials, content, options)
