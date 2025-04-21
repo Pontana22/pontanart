@@ -19,7 +19,7 @@ credentials = 'credentials/credentials.json'
 
 @app.route('/')
 def form():
-    return render_template('test.html')
+    return render_template('form.html')
 
 @app.route('/options', methods=['POST'])
 def options():
