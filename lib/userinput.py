@@ -1,25 +1,28 @@
-import argparse
-import os
 import json
 
 def process_options(options: dict):
-    if options.get('adaptive'):
-        options['mode'] += '-adaptive'
-    
-    options['font_size'] = verify_int(options['font_size'], 3)
-    options['row_length'] = verify_int(options['row_length'], 250)
-    options['row_spacing'] = verify_int(options['row_spacing'], 60)
+    with open('./resources/default_options.json', 'r') as file:
+        default = json.load(file)
     
     if not options['characters']:
-        options['characters'] = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ '
+        options['characters'] = default[options['mode']]
+        options['mode'] = 'fixed' # since the characters are pre-processed there is no need for analysis
         
-    options['font_family'] = 'Courier Prime'
-    options['analysis_resolution'] = 1000
-    options['analysis_font'] = './fonts/CourierPrime-Regular.ttf'
-
-def verify_int(val, default_val):
-    if val:
-        return int(val)
-    else:
-        return default_val
+    if options.get('adaptive'):
+        options['mode'] += '-adaptive'
+        
+    other_keys = [
+        'font_family',
+        'font_size',
+        'row_length',
+        'row_spacing',
+        'analysis_resolution',
+        'analysis_font'
+    ]
     
+    for key in other_keys:
+        if not options.get(key):
+            options[key] = default[key]
+            
+        elif type(options[key]) is str and options[key].isnumeric():
+            options[key] = int(options[key])
