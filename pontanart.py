@@ -1,8 +1,10 @@
 import os
+import redis
 
 from lib.userinput import process_options
 from lib.convert import convert
 from flask import Flask, render_template, request, session, redirect
+from flask_session import Session
 from google_auth_oauthlib.flow import Flow
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
@@ -11,10 +13,14 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' # ONLY FOR USE WITH LOCALHOST, R
 
 app = Flask(__name__)
 app.secret_key = ''
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = redis.Redis(host='localhost', port=6379)
+app.config['SESSION_PERMANENT'] = False
+Session(app)
 
-scopes = ['https://www.googleapis.com/auth/drive.file']
-redirect_uri = 'http://localhost:5000/oauth2callback'
-credentials = './resources/credentials.json'
+SCOPES = ['https://www.googleapis.com/auth/drive.file']
+REDIRECT_URI = 'http://localhost:5000/oauth2callback'
+CREDENTIALS = './resources/credentials.json'
 
 @app.route('/')
 def form():
@@ -38,7 +44,7 @@ def options():
 
 @app.route('/login')
 def login():
-    flow = Flow.from_client_secrets_file(credentials, scopes=scopes, redirect_uri=redirect_uri)
+    flow = Flow.from_client_secrets_file(CREDENTIALS, scopes=SCOPES, redirect_uri=REDIRECT_URI)
     auth_url, state = flow.authorization_url(access_type='offline', include_granted_scopes='true', prompt='consent')
     
     session['state'] = state
@@ -49,7 +55,7 @@ def login():
 def oauth2callback():
     state = session['state']
 
-    flow = Flow.from_client_secrets_file(credentials, scopes=scopes, redirect_uri=redirect_uri, state=state)
+    flow = Flow.from_client_secrets_file(CREDENTIALS, scopes=SCOPES, redirect_uri=REDIRECT_URI, state=state)
     flow.fetch_token(authorization_response=request.url)
 
     session['credentials'] = {
