@@ -81,4 +81,4 @@ def create():
     
     os.remove(options['img'])
     
-    return 'document created'
+    return render_template('success.html')
