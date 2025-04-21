@@ -12,7 +12,6 @@ from google.auth.transport.requests import Request
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' # ONLY FOR USE WITH LOCALHOST, REMOVE OTHERWISE
 
 app = Flask(__name__)
-app.secret_key = ''
 app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_REDIS'] = redis.Redis(host='localhost', port=6379)
 app.config['SESSION_PERMANENT'] = False
