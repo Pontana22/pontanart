@@ -11,11 +11,10 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' # ONLY FOR USE WITH LOCALHOST, R
 
 app = Flask(__name__)
 app.secret_key = ''
-root_dir = os.path.abspath(os.path.dirname(__file__))
 
 scopes = ['https://www.googleapis.com/auth/drive.file']
 redirect_uri = 'http://localhost:5000/oauth2callback'
-credentials = 'credentials/credentials.json'
+credentials = './resources/credentials.json'
 
 @app.route('/')
 def form():

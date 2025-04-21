@@ -1,0 +1,11 @@
+{
+    "visual": "MMMMMMMMMQQQQQQQQQWWW@@@@NNNN$$$ggEEHHBmmKKpqRRXX###kdA%bSGDDDwwwhP8FOOUUTTTxxxaaa9seey0n4ffzz2L555uuuu33oJJjjjjcccv][[tttI{rllliiii1117777777///(???*****|||><<<========+++++\"\"\";^^^!!!!!_______::::~~~~~~,,,,,-----''''''''````................               ",
+    "linear": "MQW@N$gEHBmKpqRX#kdA&%bSGDwhP8ZFOUTxa96sey0VYn4fzC2L5u3oJjcv][tI{}rli17/\\)(?*|><=+\";^!_:~,-'`. ",
+    "fixed": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !?:;.,`\"'_+-*=^~#$%&@|/\\()[]{}<>",
+    "font_family": "Courier Prime",
+    "font_size": 3,
+    "row_length": 250,
+    "row_spacing": 60,
+    "analysis_resolution": 1000,
+    "analysis_font": "./resources/CourierPrime-Regular.ttf"
+}
