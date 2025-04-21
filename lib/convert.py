@@ -2,7 +2,6 @@ from operator import itemgetter
 
 from lib.analyze import visual_sort, linear_sort
 from lib.image_conversion import get_min_max, convert_image
-from lib.login import login
 from lib.create_document import create_document
 
 def process_characters(mode, characters, resolution, font):
@@ -21,10 +20,5 @@ def convert(options: dict, credentials):
     min_val, max_val = get_min_max(image, row_length) if 'adaptive' in mode else (0, 255)
 
     content = convert_image(image, characters_processed, row_length, min_val, max_val)
-    
-    # try:
-    #     credentials = login(root_dir)
-    # except FileNotFoundError:
-    #     exit('credentials.json not found; see README.md for more info')
     
     create_document(credentials, content, options)

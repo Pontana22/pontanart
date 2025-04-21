@@ -1,9 +1,2 @@
-token.json
 credentials.json
 __pycache__
-
-img/*
-credentials/*
-
-!img.txt
-!credentials.txt
